@@ -24,7 +24,7 @@ export class ChatComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.chatService.joinRoom("ABC");
+    this.chatService.joinRoom("your-car_your_way-chat-test");
     this.userId = this.route.snapshot.params['userId'];
     this.lisenerMessage();
   }
@@ -35,7 +35,7 @@ export class ChatComponent implements OnInit {
       user: this.userId
     } as ChatMessage;
 
-    this.chatService.sendMessage("ABC", chatMessage);
+    this.chatService.sendMessage("your-car_your_way-chat-test", chatMessage);
     this.messageInput = '';
   }
 

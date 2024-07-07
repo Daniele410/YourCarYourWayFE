@@ -3,12 +3,13 @@ import { ChatService } from '../../services/chat.service';
 import { ChatMessage } from '../../models/chat-message';
 import { ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
+import { isNgTemplate } from '@angular/compiler';
 
 @Component({
   selector: 'app-chat',
   standalone: true,
-  imports: [FormsModule, NgFor],
+  imports: [FormsModule, NgFor, NgClass],
   templateUrl: './chat.component.html',
   styleUrl: './chat.component.scss'
 })
@@ -39,8 +40,12 @@ export class ChatComponent implements OnInit {
   }
 
   lisenerMessage() {
-    this.chatService.getMessageSubject().subscribe((message: any) => {
-      this.messageList = message;
+    this.chatService.getMessageSubject().subscribe((messages: any) => {
+      this.messageList = messages.map((item:any) => ({
+        ...item,
+        message_side: item.user === this.userId ? 'sender' : 'receiver' 
+
+      }));
     });
   }
 }

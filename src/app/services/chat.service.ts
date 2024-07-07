@@ -10,7 +10,7 @@ import { BehaviorSubject } from 'rxjs';
 export class ChatService {
 
   private stompClient: any;
-  private messageSubject: BehaviorSubject<ChatMessage> = new BehaviorSubject<ChatMessage[]>([]);
+  private messageSubject: BehaviorSubject<ChatMessage[]> = new BehaviorSubject<ChatMessage[]>([]);
 
   constructor() {
     this.initConnectionSocket();
@@ -26,12 +26,19 @@ export class ChatService {
     this.stompClient.connect({}, () => {
       this.stompClient.subscribe(`/topic/${roomId}`, (messages: any) => {
         const messageContent = JSON.parse(messages.body);
-        console.log(messageContent);
+        const currentMessages = this.messageSubject.getValue();
+        currentMessages.push(messageContent);
+
+        this.messageSubject.next(currentMessages);
       });
     });
   }
 
   sendMessage(roomId: string, chatMessage: ChatMessage) {
     this.stompClient.send(`/app/chat/${roomId}`, {}, JSON.stringify(chatMessage));
+  }
+
+  getMessageSubject() {
+    return this.messageSubject.asObservable();
   }
 }

@@ -1,27 +1,43 @@
-# YourCarYourWayFe
-
+# YourCarYourWay FE
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.5.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+To run the development server, follow these steps:
+1. Install Angular CLI if you haven't already.
+2. Open a terminal and navigate to the project directory.
+3. Run the command `ng serve`.
+4. Open your browser and navigate to `http://localhost:4200/`.
 
-## Code scaffolding
+The application will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Chat Feature
+
+To use the chat feature, follow these steps:
+1. Open your browser.
+2. For operator chat, navigate to `http://localhost:4200/chat/operator`.
+3. For user chat, navigate to `http://localhost:4200/chat/user`.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+To build the project, run the command `ng build`. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Backend Connection
 
-## Running end-to-end tests
+The frontend application connects to a Java Spring backend that handles WebSocket communications. Ensure the backend is running and accessible. Use the following configurations:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- **WebSocket URL**: `//localhost:3000/chat-socket`
 
-## Further help
+## Additional Help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+For more help on the Angular CLI, use the command `ng help` or visit the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Contact
+
+For more information, visit the [backend repository](https://github.com/Daniele410/YourCarYourWayBE) and explore how to interact with the complete application.
+
+---
+
+Thank you for visiting the repository! 🚀
+
